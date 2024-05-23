@@ -1,15 +1,7 @@
-SELECT
-  DATE(DATE_TRUNC(customers.registration_timestamp, MONTH)) as monthly_cohort,
-  COUNT(DISTINCT IF(DATE_DIFF(customers.registration_timestamp, payments.`timestamp`, DAY) < 31, customers.customer_id, null))
-  /
-  COUNT(DISTINCT customers.customer_id) AS first_transaction_within_one_month_after_registration_percentage
-FROM `dataset_name.customers` AS customers
-JOIN `dataset_name.payments` AS payments
-  ON payments.customer_id = customers.customer_id
-GROUP BY 1
-ORDER BY 1 DESC
-
-
+/*
+  It was not specified of what should be the basis for the cohorts so I chose months as I think that's the most common choice.
+  Also, I assumed that "in the first month after registration" means "in the first 30 days after registration".
+*/
 
 WITH
 
