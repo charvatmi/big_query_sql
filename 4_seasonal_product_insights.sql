@@ -16,7 +16,7 @@ tmp_top_five_products AS (
     SUM(IF(EXTRACT(MONTH FROM `timestamp`) > 10, quantity, null)) AS season_sales,
     SUM(IF(EXTRACT(MONTH FROM `timestamp`) <= 10, quantity, null)) AS off_season_sales,
     SUM(IF(EXTRACT(MONTH FROM `timestamp`) > 10, quantity, null)) / SUM(IF(EXTRACT(MONTH FROM `timestamp`) <= 10, quantity, null)) AS seasonal_increase
-  FROM `bigquery-public-data.london_bicycles.cycle_hire`
+  FROM `dataset_name.payment`
   WHERE
     DATE(`timestamp`) BETWEEN DATE_SUB(DATE_TRUNC(CURRENT_DATE(), YEAR), INTERVAL 1 YEAR) AND DATE_SUB(DATE_TRUNC(CURRENT_DATE(), YEAR), INTERVAL 1 DAY)
   GROUP BY 1
