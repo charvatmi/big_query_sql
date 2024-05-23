@@ -1,3 +1,8 @@
+/*
+  My understanding of "over the last two years" is last 24 full months. If it was meant as last full 2 years, the WHERE condition would be slightly different.
+*/
+
+
 WITH
 
 -- CTE that generates the calendar table with one row per month for the past 24 full months:
@@ -20,7 +25,7 @@ tmp_revenue AS (
     DATE(`timestamp`) BETWEEN DATE_SUB(DATE_TRUNC(CURRENT_DATE(), MONTH), INTERVAL 24 MONTH) AND DATE_SUB(DATE_TRUNC(CURRENT_DATE(), MONTH), INTERVAL 1 DAY)
   GROUP BY 1
 )
-
+  
 SELECT
   tmp_month_spine.year,
   tmp_month_spine.month,
