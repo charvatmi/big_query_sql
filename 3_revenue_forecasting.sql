@@ -1,3 +1,9 @@
+/*
+  I was not sure whether to calculate the forecast for the next quarter only or to do so for all past quarters historically.
+  I chose the more challenging option, so that the result would be the forecast for the next quarter (based on the average growth rate of the previous three quarters) for each quarter,
+  which could also be used for further evaluation of the accuracy of such a forecast.
+*/
+
 WITH
 
 -- CTE that calculates quarterly revenue for each quarter up to the last complete one
