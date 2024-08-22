@@ -1,6 +1,5 @@
 /*
   My understanding of "over the last two years" is last 24 full months. If it was meant as last full 2 years, the WHERE condition would be slightly different.
-  test
 */
 
 
